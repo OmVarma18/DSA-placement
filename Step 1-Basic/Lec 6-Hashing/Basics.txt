@@ -1,0 +1,7 @@
+Stores the number of times each number apprears array shows in a new array
+we can declare an array of size 10^6 inside main int and global 10^7
+for bol 10^7 in main and 10^8 global. else it gives segmentation error global all values are initiliazed 0.
+
+we can use a map or unorderd map it stores <key,value> pair.
+best case is for un ordered O(logn) avg is O(1) and worst is O(n) where N is the no of elemts worst cas is due to collison
+Hahisng happens due to 
