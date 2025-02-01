@@ -1,4 +1,4 @@
-#include <iostream>]
+#include <iostream>
 #include <map>
 using namespace std;
 /*
@@ -9,9 +9,9 @@ int main(){
     // brute
     short n;
     cout<<"Enter the size of array";
-    short n;
+    cin>> n;
     short nums[n];
-    for(short i;i<n;i++) cin>>nums[i];
+    for(short i=0;i<n;i++) cin>>nums[i];
     //brute
     // int majorityElement = -1;
     // for (int i = 0; i < n; ++i) {
@@ -27,13 +27,43 @@ int main(){
     //     }
     // }
     //Better
-    map<short,short> mpp;
+    // map<short,short> mpp;
+    // for(short i=0;i<n;i++){
+    //     mpp[nums[i]]++;
+    // if(mpp[nums[i]]>>n/2){
+    //     cout<<nums[i];
+    //     break;
+    //     }
+    // }
+
+    //optimal-moon's voting algo
+    int count=0,num;
+    //find canidate
     for(short i=0;i<n;i++){
-        mpp[nums[i]]++;
-    if(mpp[nums[i]]>>n/2){
-        cout<<nums[i];
-        break;
+        if(count==0){
+            count=1;
+            num=nums[i];
+        }
+        else if(num==nums[i]){
+            count++;
+        }
+        else{
+            count--;
         }
     }
+    //validte canidateṇ
+    count = 0;
+    for (int i = 0; i < n; i++) {
+        if (nums[i] == num) {
+            count++;
+        }
+    }
+    if(count>=n/2){
+        cout<<num;
+    }
+    else{
+        cout<<"No majority";
+    }
+
     return 0;
 }
